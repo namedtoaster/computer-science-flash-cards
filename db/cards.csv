@@ -1,0 +1,141 @@
+front,back
+"What is an array?","Contiguous area of memory (on the heap or stack) of equal sized elements indexed by contiguous integers"
+"In general, how is an element in an array accessed? (What is the pseduocode used by the compiler/interpreter?)","array_addr + elem_size * (i - first_index) -- constant time access"
+"What is the difference between row-major and column-major array indexing?","In row-major indexing, the column numbers change more rapidly than the row numbers, i.e. the elements are (1,1), (1,2), (1,3), (2,1), (2,3), etc. In column-major indexing, it's the row numbers that are changing more rapidly. This is just a difference in how the complier/interpreter ""stores"" the values of the array"
+"How do you declare a dynamically allocated array?","int* my_array = new int[size]
+
+In this example, we are creating a pointer to an integer which we are able to dynamically allocate the size of (for the array)"
+"What are the 4 steps required to dynamically allocate a new array? (This is usually done when the current array is too small and you need a bigger one)","1. Create new array with a bigger size than the original in order to fit the new element
+2. Copy the elements from the old array into the new one
+3. De-allocate the old array
+4. Put the new element into the new array"
+"What is the difference between a single linked list and a double linked list?","In a single linked list, each node only ""points forward"". It only knows what its next node is. In a double linked list, each node knows its next AND previous node. This helps our runtime in the case where we want to pop the back of the linked list and we need to know what the previous node is"
+"What is a stack?","It's an abstract data structure with the following operations:
+- Push(key): adds key to the collection
+- Key Top(): finds the most recently added key
+- Key Pop(): removes and returns the most recently added key
+- Boolean Empty(): is it empty?"
+"What is a queue?","An abstract data structure that implements the following operations:
+- Enqueue(key): adds key to collection
+- Key Dequeue(key): removes and returns least recently added key
+- Boolean Empty(): is the queue empty?"
+"What is the pseudocode for implementing the IsBalanced(str) operation on a string of parans ((, )) and brackets ([, ]) to determine if it is indeed balanced?","Stack stack
+  for char in str:
+    if char in [‘(‘, ‘[‘]:
+      stack.Push(char)
+    else:
+      if stack.Empty(): return False
+      top ← stack.Pop()
+      if (top = ‘[‘ and char != ‘]’) or
+        (top = ‘(‘ and char != ‘)’):
+        return False
+return stack.Empty()"
+"What is the definition of a tree?","A Tree is:
+empty, or
+a node with:
+a key, and
+a list of child trees."
+"What is the pseudocode to find the height of a tree?","if tree = nil:
+  return 0
+return 1 + Max(Height(tree.left), Height(tree.right))"
+"What is the pseudocode to find the size of a tree?","if tree = nil
+  return 0
+return 1 + Size(tree.left) + Size(tree.right)"
+"What is the difference between a depth-first search vs. a breadth first search?","Depth-first: We completely traverse one sub-tree before exploring a sibling sub-tree.
+Breadth-first: We traverse all nodes at one level before progressing to the next level."
+"What is the pseudocode for an In Order traversal of a tree? (Depth first)","if tree = nil:
+  return
+InOrderTraversal(tree.left)
+Print(tree.key)
+InOrderTraversal(tree.right)"
+"What is the pseudocode for a Pre Order traversal of a tree? (Depth first)","if tree = nil:
+  return
+Print(tree.key)
+PreOrderTraversal(tree.left)
+PreOrderTraversal(tree.right)"
+"What is the pseudocode for a Post Order traversal of a tree? (Depth first)","if tree = nil:
+  return
+PostOrderTraversal(tree.left)
+PostOrderTraversal(tree.right)
+Print(tree.key)"
+"What is the pseudocode for a Left Traversal traversal of a tree? (Breadth first)","if tree = nil: return
+
+Queue q
+q.Enqueue(tree)
+
+while not q.Empty() :
+  node ← q.Dequeue()
+  Print(node)
+  if node.left ̸= nil:
+    q.Enqueue(node.left)
+  if node.right ̸= nil:
+    q.Enqueue(node.right)"
+"What are the operations that can be performed on a Linked List?","PushFront(Key): add to front
+Key TopFront(): return front item
+PopFront(): remove front item
+PushBack(Key): add to back
+Key TopBack(): return back item
+PopBack(): remove back item
+Boolean Find(Key): is key in list?
+Erase(Key): remove key from list
+Boolean Empty(): empty list?
+AddBefore(Node, Key): adds key before node
+AddAfter(Node, Key): adds key after node"
+"What are the 3 types of access modifiers in a C++ class?","Public, private, protected"
+"What are the 2 types of parameterized constructors in C++?","Explicit and implicit:
+
+Explicit: Example e = Example(1, 2);
+Implicit: Example e(1, 2);"
+"(C++) What is an example of an initialization list in an class constructor?","Line::Line( double len): length(len) {
+   cout << ""Object is being created, length = "" << len << endl;
+}
+
+// The above is the same as the below
+
+Line::Line( double len) {
+   cout << ""Object is being created, length = "" << len << endl;
+   length = len;
+}"
+"(C++) Where can a conflict arise if a namespace is not used (in C++)?","- Between User defined variables/functions/classes and built in Library variables/functions/classes (e.g. sqrt(), abs() etc.)
+- Between the separately included library and built in library
+- Between the variables/functions/classes of the one separately included library and the same of the other separately included library"
+"(C++) What two major points are there to note about namespaces?","1) We can have more than one namespace of the same name. This gives the advantage of defining the same namespace in more than one file (although they can be created in the same file as well).
+2) We can have anonymous namespaces (namespace with no name). They are directly usable in the same program and are used for declaring unique identifiers. It also avoids making global static variable."
+"(C++) What is the difference between dynamically allocated memory and local varaibles? i.e. Where does dynamically allocated memory get placed vs. local variables?","Dynamically Allocated Memory - Heap
+Local Variables - Stack"
+"(C++) When do you use the ""new"" operator?","// Whenever you want to request to allocate new memory onto the heap. This is done whenever using pointers. See an example below
+
+int *x = new int(10);
+
+// Don't forget to deallocate it when you're done with it
+
+delete x;"
+"In CG, what is a differential area (dA)?","The area of a surface we are interested in to calculate shader/lighting value, etc. It's basically the same as a point, but since a point is infinitely small, this is what we use"
+"In CG, what happens when a light beam is perpendicular to a differential area (dA)?","When the light beam is perpendicular to dA 100% of the photons contained within the small cone of light whose cross section is the same as dA strike dA."
+"In CG, what happens when a light beam is not perpendicular, but also not parrallel to a differential area (dA)?","When the light beam makes an angle with the normal of the shaded point, then the cross section of the beam with the surface becomes larger than dA which means that the photons or light energy is distributed over a larger region than dA. Since we are only interested in the amount of light energy arriving over the region covered by dA we can aslo say that fewer photons reach dA as the angle of the light beam with the normal increases. The larger the angle, the fewer the photons. Thus dA keeps receiving less and less energy as the angle between the beam and the normal increases."
+"In CG, what happens when a light beam is parrallel to a differntial area (dA)?","Finally, in the extreme case, when the beam is perpendicular to the normal at P, then photons do not fall on dA at all. In this particular case, dA does not receive any light energy at all."
+"In CG, define and describe Lambert's Cosine Law","The amount of light that a surface receives is directly proportional to the angle between the surface normal N and the light direction L. This angle can be define mathematically as:
+
+cosθ=N.L"
+"In CG, what is albedo?","The albedo terms defines the ratio of reflected light over the amount of incident light:
+
+albedo = reflect light / incident light
+
+In computer graphics the term albedo is often denoted with the Greek letter ρ (rho)"
+"In CG, what is the formula to calculate the light energy of the hemisphere radiated (reflected) by a single point of a diffuse surface?","Amount of Reflected Light(P)= ∫Ω ρd ∗ Light Energy ∗ cosθdω
+
+The integral symbol only means that we are interested in summing up in a way all the light energy that is spread across the surface of the hemisphere (imagine that you are counting the number of photons distributed over the surface of that hemisphere). The concept of hemisphere in this equation is represented by the term Ω. If you read this equation you could say ""collect (the ∫ term) the light energy (aka the number of photons for example) of an incident light beam reflected by the surface at P, over the hemisphere (defined here by the term Ω) oriented about the surface normal N at the point of incidence"""
+"In CG, when measuring the area of a small patch, what is that small area called on say a plane vs. a sphere/hemisphere?","When the object is just a flat plane for instance, the area of a patch on this plane can just be measured in terms of square meter or inch or whatever units you wish to use to measure lengths. We would call this a differential area. We already introduced this concept earlier in this chapter and mentioned that differential areas are generally denoted dA. Though, when it comes to a sphere or a hemisphere, we don't use square meters but steradians instead."
+"In CG, what is a steradian?","Steradian is the unit of solid angle, where a solid angle is basically a measure of a patch on a sphere expressed in terms of angle rather than length. The symbol used in CG for solid angle is most of the time ω. The term dω thus refers to the concept of differential solid angle, or in more common terms a very small patch on the sphere but expressed in terms of solid angle"
+"In CG, what is the formula that defines the amount of light reflected back by a diffuse surface?","Diffuse Surface Color = (ρd / π) ∗ Li ∗ cosθ"
+"OpenGL, what is GLSL (OpenGL Shading Language)?","GLSL is a high-level shading language with a syntax based on the C programming language. It was created by the OpenGL ARB (OpenGL Architecture Review Board) to give developers more direct control of the graphics pipeline without having to use ARB assembly language or hardware-specific languages"
+"OpenGL, what is GLEW?","GLEW is a cross-platform C/C++ library that helps in querying and loading OpenGL extensions. GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform. All OpenGL extensions are exposed in a single header file, which is machine-generated from the official extension list."
+"OpenGL, what is SDL?","SDL is a cross-platform software development library designed to provide a hardware abstraction layer for computer multimedia hardware components. Software developers can use it to write high-performance computer games and other multimedia applications that can run on many operating systems such as Android, iOS, Linux, Mac OS X and Windows."
+"OpenGL, what is GLFW?","GLFW is a lightweight utility library for use with OpenGL. GLFW stands for Graphics Library Framework. It provides programmers with the ability to create and manage windows and OpenGL contexts, as well as handle joystick, keyboard and mouse input."
+"In CG, what is double buffering?","Double buffering is a technique for drawing graphics that shows no (or less) stutter, tearing, and other artifacts.
+
+A software implementation of double buffering has all drawing operations store their results in some region of system RAM; any such region is often called a ""back buffer"". When all drawing operations are considered complete, the whole region (or only the changed portion) is copied into the video RAM (the ""front buffer""); this copying is usually synchronized with the monitor's raster beam in order to avoid tearing."
+"OpenGL, what is a VBO (Vertex Buffer Object)?","VBOs are ""buffers"" of video memory – just a bunch of bytes containing any kind of binary data you want. You can upload 3D points, colors, your music collection, poems to your loved ones – the VBO doesn't care, because it just copies a chunk of memory without asking what the memory contains."
+"OpenGL, what is a VAO (Vertex Array Object)?","VAOs are the link between the VBOs and the shader variables. VAOs describe what type of data is contained within a VBO, and which shader variables the data should be sent to."
+"OpenGL, in GLSL (OpenGL Shading Language), what is an attribute variable?","Attribute variables can have a different value for each vertex. Attributes must enter the vertex shader first, not the fragment shader. The vertex shader can pass the value into the fragment shader if necessary. This is because uniforms are like constants – they don't change so they can be accessed from any shader. However, attributes are not constant. The vertex shader can change the value of an attribute before it gets to the fragment shader. The output of the vertex shader is the input to the fragment shader."
+"OpenGL, in GLSL (OpenGL Shading Language), what is a uniform variable?","Uniform variables keep the same value for multiple vertices. For example, if you want to set a colour for a whole triangle, you would use a uniform variable. Uniforms can be accessed from any shader"
