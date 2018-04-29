@@ -1,0 +1,52 @@
+#+TITLE: Flash Card Notes
+* How does it work?
+** DB files
+   The DB files actually store the flashcard questions and answers
+** Docker
+   See [[https://opensource.com/resources/what-docker][this link]] for an explanation of what Docker does
+*** General Docker explanation
+**** What does Docker do?
+     It packages a software container that works on any custom software/hardware configuration. Docker gives a standard way of "packing" things and the end-user is able to use the standards developed to actually work with the software
+*** How is the app run with Docker?
+    Not clue. I'll figure this out later maybe
+** Python
+*** What is flask?
+    Check out [[http://flask.pocoo.org/docs/1.0/quickstart/#quickstart][this link]] for a quickstart guide
+*** What are the steps of running the website?
+    First, the file imports flask and all the necessary Flask components. Then it configures the app for whatever it needs to run successfully
+
+    The entry point for the app is the very bottom with the block
+
+    #+BEGIN_SRC 
+    if __name__ == '__main__':
+        app.run(host='0.0.0.0')
+    #+END_SRC
+
+    This is where Flask starts running on the the local host (on 0.0.0.0). I think the default port is 5000.
+
+    The app will be sent to the '/' url. This immediately redirects to the /general page which will load a random card
+* DB export
+It really isn't that important for me to know how the app works, although I do have a basic understanding. What I do need to figure out is how to export it so it is formatted correctly. This is especially true for the programming cards
+
+#+BEGIN_SRC 
+"Line::Line( double len): length(len) {
+
+   cout << ""Object is being created, length = "" << len << endl;
+
+}
+
+
+
+// The above is the same as the below
+
+
+
+Line::Line( double len) {
+
+   cout << ""Object is being created, length = "" << len << endl;
+
+   length = len;
+
+}"
+
+#+END_SRC

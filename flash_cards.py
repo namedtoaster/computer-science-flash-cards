@@ -57,6 +57,7 @@ def initdb():
 
 @app.route('/')
 def index():
+    print (url_for('general'))
     if session.get('logged_in'):
         return redirect(url_for('general'))
     else:
@@ -111,7 +112,7 @@ def add_card():
     db.execute('INSERT INTO cards (type, front, back) VALUES (?, ?, ?)',
                [request.form['type'],
                 request.form['front'],
-                request.form['back']
+                request.form['back'] + '\n&&&'
                 ])
     db.commit()
     flash('New card was successfully added.')
