@@ -28,25 +28,4 @@
 * DB export
 It really isn't that important for me to know how the app works, although I do have a basic understanding. What I do need to figure out is how to export it so it is formatted correctly. This is especially true for the programming cards
 
-#+BEGIN_SRC 
-"Line::Line( double len): length(len) {
-
-   cout << ""Object is being created, length = "" << len << endl;
-
-}
-
-
-
-// The above is the same as the below
-
-
-
-Line::Line( double len) {
-
-   cout << ""Object is being created, length = "" << len << endl;
-
-   length = len;
-
-}"
-
-#+END_SRC
+It looks like everything exports correctly in terms of all the newlines and whatnot. If I just add some extra characters (like &&&) at the end of each entry, I can use those characters to tell quizlet when the next entry is instead of it using ANY newline to detect a new entry
